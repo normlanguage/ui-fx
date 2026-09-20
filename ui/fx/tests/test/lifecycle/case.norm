@@ -1,0 +1,52 @@
+package ui.fx.test.lifecycle
+
+import std.testing.Test
+import std.core.Exception
+import ui.fx.FxApplication
+import ui.fx.withFxRuntime
+
+class Observations { Integer edits = 0 Boolean disposed = false }
+
+@Test
+Void verifiesJavaFxLifecycleAndControls() {
+  withFxRuntime(() {
+    var application = FxApplication("Norm JavaFX controls")
+    var state = Observations()
+    application.run(build: () {
+      var input = application.input()
+      input.onText((text) { state.edits = state.edits + 1 })
+      input.text("中文")
+      if state.edits != 0 { throw Exception(message: "model update must not emit edit") }
+      if input.readText() != "中文" { throw Exception(message: "input value") }
+      input.clear()
+      if state.edits == 0 { throw Exception(message: "native edit must emit event") }
+      var column = application.column()
+      var first = application.text()
+      first.text("first")
+      var second = application.button()
+      second.text("second")
+      column.children([first, second, input])
+      application.root(column)
+      column.children([input, second, first])
+      application.later(() { application.close() })
+    }, dispose: () { state.disposed = true })
+    require(condition: state.disposed, message: "application disposes before returning")
+    var failed = FxApplication("Norm JavaFX failure")
+    var failure = Exception(message: "event failure")
+    try {
+      failed.run(build: () { throw failure }, dispose: () {})
+      throw Exception(message: "callback failure was lost")
+    } catch Exception error { require(condition: error == failure, message: "failure identity") }
+    var cleanupFailure = FxApplication("Norm JavaFX cleanup failure")
+    var cleanupError = Exception(message: "cleanup failure")
+    try {
+      cleanupFailure.run(build: () { cleanupFailure.close() }, dispose: () { throw cleanupError })
+      throw Exception(message: "cleanup failure was lost")
+    } catch Exception error { require(condition: error == cleanupError, message: "cleanup failure identity") }
+    var aborted = FxApplication("Norm JavaFX abort")
+    try {
+      aborted.run(build: () { require(condition: false, message: "fatal callback") }, dispose: () {})
+      throw Exception(message: "aborted callback was lost")
+    } catch Exception error { require(condition: error.message == "GUI callback aborted", message: "aborted callback releases waiter") }
+  })
+}

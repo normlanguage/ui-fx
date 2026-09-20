@@ -1,0 +1,169 @@
+package ui.fx
+
+import std.core.Exception
+import std.core.Unit
+import std.concurrent.Completion
+import std.concurrent.Task
+import std.concurrent.completion
+import std.context.currentContext
+import fx.graphics.Stage
+import fx.graphics.StackPane
+import fx.graphics.Priority
+import fx.graphics.stageNew
+import fx.graphics.stackPaneNew
+import fx.graphics.sceneNew
+import fx.graphics.insetsNew
+import fx.graphics.vBoxNew
+import fx.graphics.hBoxNew
+import fx.graphics.vBoxSetVgrow
+import fx.graphics.platformRunLater
+import fx.graphics.platformIsFxApplicationThread
+import fx.controls.Alert
+import fx.controls.AlertAlertType
+import fx.controls.ScrollPaneScrollBarPolicy
+import fx.controls.alertNew
+import fx.controls.labelNew
+import fx.controls.buttonNew
+import fx.controls.textFieldNew
+import fx.controls.checkBoxNew
+import fx.controls.scrollPaneNew
+
+public class FxApplication {
+  private String title
+  private Completion<Unit> finished
+  private Stage? stage
+  private StackPane? container
+  private Function<Void()>? cleanupAction
+  private List<Task<Unit>> terminations
+  private List<Alert> errors
+  private Boolean closing
+  private Boolean started
+
+  FxApplication(String title) {
+    this.title = title
+    finished = completion<Unit>()
+    stage = null
+    container = null
+    cleanupAction = null
+    terminations = List<>()
+    errors = List<>()
+    closing = false
+    started = false
+  }
+
+  public Void run(Function<Void()> build, Function<Void()> dispose) {
+    if platformIsFxApplicationThread() { throw Exception(message: "GUI run requires a non-UI thread") }
+    if currentContext<FxRuntime>() == null {
+      withFxRuntime(() { this.run(build: build, dispose: dispose) })
+      return
+    }
+    if started { throw Exception(message: "GUI application has already run") }
+    started = true
+    cleanupAction = dispose
+    var task = finished.task()
+    try {
+      this.later(() {
+        var window = stageNew()
+        stage = window
+        var pane = stackPaneNew()
+        container = pane
+        pane.setPadding(insetsNew(24.0))
+        var scene = sceneNew(arg0: pane, arg1: 760.0, arg2: 680.0)
+        scene.getStylesheets()!!.add(theme())
+        window.setTitle(title)
+        window.setScene(scene)
+        window.setMinWidth(420.0)
+        window.setMinHeight(320.0)
+        window.setOnCloseRequest((event) { event!!.consume() this.close() })
+        build()
+        if !closing { window.show() }
+      })
+      task.await()
+    } finally {
+      for termination : terminations { termination.await() }
+      finished.close()
+    }
+  }
+
+  public Void root(FxNode node) {
+    checkFxThread()
+    var children = container!!.getChildren()!!
+    children.remove(arg0: 0, arg1: children.size())
+    children.add(node.node())
+  }
+
+  public FxNode text() { checkFxThread() FxNode(application: this, node: labelNew()) }
+  public FxNode button() { checkFxThread() FxNode(application: this, node: buttonNew()) }
+  public FxNode input() { checkFxThread() FxNode(application: this, node: textFieldNew()) }
+  public FxNode toggle() { checkFxThread() FxNode(application: this, node: checkBoxNew()) }
+  public FxNode column() { checkFxThread() FxNode(application: this, node: vBoxNew(12.0)) }
+  public FxNode row() { checkFxThread() FxNode(application: this, node: hBoxNew(10.0)) }
+  public FxNode component() { checkFxThread() FxNode(application: this, node: stackPaneNew()) }
+  public FxNode scroll() {
+    checkFxThread()
+    var pane = scrollPaneNew()
+    pane.setFitToWidth(true)
+    pane.setHbarPolicy(ScrollPaneScrollBarPolicy.NEVER)
+    vBoxSetVgrow(arg0: pane, arg1: Priority.ALWAYS)
+    FxNode(application: this, node: pane)
+  }
+
+  public Void close() { checkFxThread() this.finish(null) }
+  public Void later(Function<Void()> action) { platformRunLater(() { this.dispatch(action) }) }
+
+  public Void trackTermination(Task<Unit> termination) {
+    checkFxThread()
+    if closing { throw Exception(message: "GUI application is closed") }
+    List<Task<Unit>> pending = List<>()
+    for task : terminations { if !task.completed() { pending.add(task) } }
+    pending.add(termination)
+    terminations = pending
+  }
+
+  public Void reportFailure(String message) {
+    checkFxThread()
+    if closing { return }
+    printLine(message)
+    var alert = alertNew(AlertAlertType.ERROR)
+    alert.initOwner(stage)
+    alert.setTitle("操作失败")
+    alert.setHeaderText(null)
+    alert.setContentText(message)
+    alert.setOnHidden((event) {
+      List<Alert> visible = List<>()
+      for error : errors { if error != alert { visible.add(error) } }
+      errors = visible
+    })
+    errors.add(alert)
+    alert.show()
+  }
+
+  Void dispatch(Function<Void()> action) {
+    if closing { return }
+    Boolean returned = false
+    try { action() returned = true }
+    catch Exception error { this.finish(error) }
+    finally {
+      if !returned && !closing { this.finish(Exception(message: "GUI callback aborted")) }
+    }
+  }
+
+  private Void finish(Exception? failure) {
+    if closing { return }
+    closing = true
+    var result = failure
+    Boolean cleaned = false
+    try {
+      var cleanup = cleanupAction
+      if cleanup != null { cleanup() }
+      cleaned = true
+    } catch Exception error { if result == null { result = error } }
+    finally {
+      if result == null && !cleaned { result = Exception(message: "GUI cleanup aborted") }
+      for error : errors { error.close() }
+      stage?.close()
+      if result == null { finished.succeed(Unit.Value) }
+      else { finished.fail(result) }
+    }
+  }
+}

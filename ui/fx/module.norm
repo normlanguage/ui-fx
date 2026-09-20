@@ -1,0 +1,5 @@
+Module module() {
+  module(name: "ui.fx", version: 1,
+    exports: ["application", "node", "runtime"],
+    dependencies: [dependency(repository: "github", name: "fx.controls", version: 1)])
+}
