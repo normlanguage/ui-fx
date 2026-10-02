@@ -13,3 +13,5 @@ Validated on Windows x64 with JVM execution and Native application startup. Java
 [Sample ownership](samples/README.md).
 
 Native JavaFX node adoption and application stylesheet configuration are defined in [application.norm](ui/fx/application.norm) and [node.norm](ui/fx/node.norm).
+
+Rendering adapter: [backend.norm](ui/fx/backend.norm). Desktop entry points: [desktop.norm](ui/fx/desktop.norm). Core contracts: [ui](https://github.com/normlanguage/ui).

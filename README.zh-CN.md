@@ -13,3 +13,5 @@
 [示例归属](samples/README.zh-CN.md)。
 
 原生 JavaFX 节点接入和应用样式配置入口见 [application.norm](ui/fx/application.norm) 与 [node.norm](ui/fx/node.norm)。
+
+Rendering adapter: [backend.norm](ui/fx/backend.norm). Desktop entry points: [desktop.norm](ui/fx/desktop.norm). Core contracts: [ui](https://github.com/normlanguage/ui).

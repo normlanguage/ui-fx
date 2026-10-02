@@ -1,0 +1,58 @@
+package ui.fx.test.backend
+
+import std.testing.Test
+import ui.Binding
+import ui.Key
+import ui.TextFieldHandle
+import ui.TextFieldReference
+import ui.View
+import ui.ViewContent
+import ui.Renderer
+import ui.fx.FxApplication
+import ui.fx.JavaFxBackend
+import ui.fx.JavaFxScheduler
+import ui.fx.fxHandle
+import ui.fx.withFxRuntime
+import fx.controls.Label
+import fx.controls.TextArea
+import fx.controls.TextField
+
+@Test
+Void rendersCoreDescriptorsAndReleasesTypedReferencesBeforeShowingAWindow() {
+  withFxRuntime(() {
+    var application = FxApplication("Renderer bridge verification")
+    var renderer = Renderer(backend: JavaFxBackend(application), scheduler: JavaFxScheduler(application))
+    var key = Key<TextFieldHandle>()
+    var model = Model()
+    var text = Binding<String>(read: () { model.text }, write: (String value) { model.text = value })
+    application.run(build: () {
+      renderer.render(View(content: ViewContent.Input(placeholder: "input", text: text, submit: (String value) {}), reference: TextFieldReference(key)))
+      var native = fxHandle(renderer.node()).nativeNode()
+      switch native {
+        case TextField input { require(condition: input.getText() == "bound text", message: "core binding reaches native control") }
+        case _ { require(condition: false, message: "input descriptor selects TextField") }
+      }
+      require(condition: key.current != null && key.current!!.text == "bound text", message: "renderer connects typed input reference")
+      renderer.render(View(content: ViewContent.Text("replacement")))
+      require(condition: key.current == null, message: "replacement releases prior input reference")
+      switch fxHandle(renderer.node()).nativeNode() {
+        case Label label {}
+        case _ { require(condition: false, message: "text descriptor selects Label") }
+      }
+      renderer.render(View(content: ViewContent.Multiline(placeholder: "notes", text: text, rows: 5, editable: true)))
+      switch fxHandle(renderer.node()).nativeNode() {
+        case TextArea input {
+          require(condition: input.getText() == "bound text", message: "multiline preserves bound text")
+          input.setText("edited text")
+          require(condition: model.text == "edited text", message: "native multiline editing updates core binding")
+        }
+        case _ { require(condition: false, message: "multiline selects TextArea") }
+      }
+      application.close()
+    }, dispose: renderer.close)
+    require(condition: key.current == null, message: "shutdown leaves no reference")
+  })
+}
+
+
+class Model { String text = "bound text" }
