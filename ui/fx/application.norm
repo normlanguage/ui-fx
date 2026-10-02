@@ -7,12 +7,13 @@ import std.concurrent.Task
 import std.concurrent.completion
 import std.context.currentContext
 import fx.graphics.Stage
+import fx.graphics.Node
+import fx.graphics.Scene
 import fx.graphics.StackPane
 import fx.graphics.Priority
 import fx.graphics.stageNew
 import fx.graphics.stackPaneNew
 import fx.graphics.sceneNew
-import fx.graphics.insetsNew
 import fx.graphics.vBoxNew
 import fx.graphics.hBoxNew
 import fx.graphics.vBoxSetVgrow
@@ -30,8 +31,12 @@ import fx.controls.scrollPaneNew
 
 public class FxApplication {
   private String title
+  private Double width
+  private Double height
+  private String? stylesheet
   private Completion<Unit> finished
   private Stage? stage
+  private Scene? activeScene
   private StackPane? container
   private Function<Void()>? cleanupAction
   private List<Task<Unit>> terminations
@@ -39,10 +44,15 @@ public class FxApplication {
   private Boolean closing
   private Boolean started
 
-  FxApplication(String title) {
+  FxApplication(String title, String? stylesheet = null, Double width = 760.0, Double height = 680.0) {
     this.title = title
+    require(condition: width > 0.0 && height > 0.0, message: "Window dimensions must be positive")
+    this.width = width
+    this.height = height
+    this.stylesheet = stylesheet
     finished = completion<Unit>()
     stage = null
+    activeScene = null
     container = null
     cleanupAction = null
     terminations = List<>()
@@ -67,9 +77,10 @@ public class FxApplication {
         stage = window
         var pane = stackPaneNew()
         container = pane
-        pane.setPadding(insetsNew(24.0))
-        var scene = sceneNew(arg0: pane, arg1: 760.0, arg2: 680.0)
-        scene.getStylesheets()!!.add(theme())
+        var scene = sceneNew(arg0: pane, arg1: width, arg2: height)
+        activeScene = scene
+        var source = stylesheet
+        if source != null { scene.getStylesheets()!!.add(source) }
         window.setTitle(title)
         window.setScene(scene)
         window.setMinWidth(420.0)
@@ -92,16 +103,40 @@ public class FxApplication {
     children.add(node.node())
   }
 
+  public Scene scene() {
+    checkFxThread()
+    var current = activeScene
+    if current == null || closing { throw Exception(message: "GUI scene is unavailable") }
+    current
+  }
+
   public FxNode text() { checkFxThread() FxNode(application: this, node: labelNew()) }
   public FxNode button() { checkFxThread() FxNode(application: this, node: buttonNew()) }
   public FxNode input() { checkFxThread() FxNode(application: this, node: textFieldNew()) }
   public FxNode toggle() { checkFxThread() FxNode(application: this, node: checkBoxNew()) }
-  public FxNode column() { checkFxThread() FxNode(application: this, node: vBoxNew(12.0)) }
-  public FxNode row() { checkFxThread() FxNode(application: this, node: hBoxNew(10.0)) }
-  public FxNode component() { checkFxThread() FxNode(application: this, node: stackPaneNew()) }
+  public FxNode adopt(Node node) { checkFxThread() FxNode(application: this, node: node, managed: false) }
+  public FxNode column() {
+    checkFxThread()
+    var pane = vBoxNew(12.0)
+    pane.getStyleClass()!!.add("norm-column")
+    FxNode(application: this, node: pane)
+  }
+  public FxNode row() {
+    checkFxThread()
+    var pane = hBoxNew(10.0)
+    pane.getStyleClass()!!.add("norm-row")
+    FxNode(application: this, node: pane)
+  }
+  public FxNode component() {
+    checkFxThread()
+    var pane = stackPaneNew()
+    pane.getStyleClass()!!.add("norm-component")
+    FxNode(application: this, node: pane)
+  }
   public FxNode scroll() {
     checkFxThread()
     var pane = scrollPaneNew()
+    pane.getStyleClass()!!.add("norm-scroll")
     pane.setFitToWidth(true)
     pane.setHbarPolicy(ScrollPaneScrollBarPolicy.NEVER)
     vBoxSetVgrow(arg0: pane, arg1: Priority.ALWAYS)
@@ -162,6 +197,7 @@ public class FxApplication {
       if result == null && !cleaned { result = Exception(message: "GUI cleanup aborted") }
       for error : errors { error.close() }
       stage?.close()
+      activeScene = null
       if result == null { finished.succeed(Unit.Value) }
       else { finished.fail(result) }
     }

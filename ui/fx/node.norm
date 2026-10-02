@@ -15,7 +15,9 @@ import fx.controls.Labeled
 import fx.controls.ScrollPane
 
 public class FxNode implements Resource {
+  private FxApplication application
   private Node peer
+  private Boolean managed
   private Function<Void()>? action
   private Function<Void(String)>? edit
   private Function<Void(Boolean)>? toggle
@@ -24,8 +26,10 @@ public class FxNode implements Resource {
   private Boolean closed
   private String roleClass
 
-  FxNode(FxApplication application, Node node) {
+  FxNode(FxApplication application, Node node, Boolean managed = true) {
+    this.application = application
     this.peer = node
+    this.managed = managed
     action = null
     edit = null
     toggle = null
@@ -33,6 +37,7 @@ public class FxNode implements Resource {
     synchronizing = false
     closed = false
     roleClass = ""
+    if !managed { return }
     switch node {
       case Button button {
         button.setOnAction((event) { application.dispatch(() {
@@ -71,6 +76,11 @@ public class FxNode implements Resource {
   }
 
   Node node() { peer }
+  public Node nativeNode() { peer }
+  public Void dispatch(Function<Void()> callback) {
+    checkFxThread()
+    if !closed { application.dispatch(callback) }
+  }
   public Void focus() { this.checkOpen() peer.requestFocus() }
   public String readText() {
     this.checkOpen()
@@ -132,6 +142,10 @@ public class FxNode implements Resource {
   }
   public Void children(List<FxNode> children) {
     this.checkOpen()
+    if !managed {
+      if children.size() != 0 { throw Exception(message: "borrowed node manages its own children") }
+      return
+    }
     switch peer {
       case ScrollPane scroll {
         if children.size() != 1 { throw Exception(message: "scroll view requires one child") }
@@ -166,6 +180,7 @@ public class FxNode implements Resource {
     action = null
     edit = null
     toggle = null
+    if !managed { return }
     switch peer {
       case Pane pane {
         var children = pane.getChildren()!!
