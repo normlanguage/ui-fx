@@ -31,6 +31,8 @@ import fx.controls.scrollPaneNew
 
 public class FxApplication {
   private String title
+  private Double width
+  private Double height
   private String? stylesheet
   private Completion<Unit> finished
   private Stage? stage
@@ -42,8 +44,11 @@ public class FxApplication {
   private Boolean closing
   private Boolean started
 
-  FxApplication(String title, String? stylesheet = null) {
+  FxApplication(String title, String? stylesheet = null, Double width = 760.0, Double height = 680.0) {
     this.title = title
+    require(condition: width > 0.0 && height > 0.0, message: "Window dimensions must be positive")
+    this.width = width
+    this.height = height
     this.stylesheet = stylesheet
     finished = completion<Unit>()
     stage = null
@@ -72,7 +77,7 @@ public class FxApplication {
         stage = window
         var pane = stackPaneNew()
         container = pane
-        var scene = sceneNew(arg0: pane, arg1: 760.0, arg2: 680.0)
+        var scene = sceneNew(arg0: pane, arg1: width, arg2: height)
         activeScene = scene
         var source = stylesheet
         if source != null { scene.getStylesheets()!!.add(source) }
@@ -110,12 +115,28 @@ public class FxApplication {
   public FxNode input() { checkFxThread() FxNode(application: this, node: textFieldNew()) }
   public FxNode toggle() { checkFxThread() FxNode(application: this, node: checkBoxNew()) }
   public FxNode adopt(Node node) { checkFxThread() FxNode(application: this, node: node, managed: false) }
-  public FxNode column() { checkFxThread() FxNode(application: this, node: vBoxNew(12.0)) }
-  public FxNode row() { checkFxThread() FxNode(application: this, node: hBoxNew(10.0)) }
-  public FxNode component() { checkFxThread() FxNode(application: this, node: stackPaneNew()) }
+  public FxNode column() {
+    checkFxThread()
+    var pane = vBoxNew(12.0)
+    pane.getStyleClass()!!.add("norm-column")
+    FxNode(application: this, node: pane)
+  }
+  public FxNode row() {
+    checkFxThread()
+    var pane = hBoxNew(10.0)
+    pane.getStyleClass()!!.add("norm-row")
+    FxNode(application: this, node: pane)
+  }
+  public FxNode component() {
+    checkFxThread()
+    var pane = stackPaneNew()
+    pane.getStyleClass()!!.add("norm-component")
+    FxNode(application: this, node: pane)
+  }
   public FxNode scroll() {
     checkFxThread()
     var pane = scrollPaneNew()
+    pane.getStyleClass()!!.add("norm-scroll")
     pane.setFitToWidth(true)
     pane.setHbarPolicy(ScrollPaneScrollBarPolicy.NEVER)
     vBoxSetVgrow(arg0: pane, arg1: Priority.ALWAYS)
