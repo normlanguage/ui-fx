@@ -4,6 +4,9 @@ import std.testing.Test
 import std.core.Exception
 import ui.fx.FxApplication
 import ui.fx.withFxRuntime
+import fx.controls.buttonNew
+import fx.controls.labelNew
+import fx.graphics.vBoxNew
 
 class Observations { Integer edits = 0 Boolean disposed = false }
 
@@ -48,5 +51,42 @@ Void verifiesJavaFxLifecycleAndControls() {
       aborted.run(build: () { require(condition: false, message: "fatal callback") }, dispose: () {})
       throw Exception(message: "aborted callback was lost")
     } catch Exception error { require(condition: error.message == "GUI callback aborted", message: "aborted callback releases waiter") }
+    var borrowedApp = FxApplication("Borrowed controls")
+    var observations = Observations()
+    borrowedApp.run(build: () {
+      var button = buttonNew()
+      button.setOnAction((event) { observations.edits = observations.edits + 1 })
+      var pane = vBoxNew(8.0)
+      pane.getChildren()!!.add(button)
+      var wrapped = borrowedApp.adopt(pane)
+      var wrappedButton = borrowedApp.adopt(button)
+      require(condition: wrapped.nativeNode() == pane, message: "adoption preserves native identity")
+      require(condition: wrappedButton.nativeNode() == button, message: "control adoption preserves native identity")
+      var column = borrowedApp.column()
+      column.children([wrapped, borrowedApp.text()])
+      borrowedApp.root(column)
+      require(condition: borrowedApp.scene().getStylesheets()!!.size() == 0, message: "no implicit theme stylesheet")
+      wrapped.dispatch(() { observations.edits = observations.edits + 1 })
+      require(condition: observations.edits == 1, message: "native event enters application boundary")
+      wrapped.close()
+      wrapped.close()
+      wrappedButton.close()
+      wrappedButton.close()
+      wrapped.dispatch(() { observations.edits = observations.edits + 1 })
+      require(condition: observations.edits == 1, message: "closed wrapper ignores late events")
+      require(condition: pane.getChildren()!!.size() == 1, message: "borrowed pane keeps its children")
+      button.fire()
+      require(condition: observations.edits == 2, message: "borrowed button retains its own action")
+      borrowedApp.later(() { borrowedApp.close() })
+    }, dispose: () {})
+    var stylesheet = "data:text/css,.root%7B-fx-background-color:%23abcdef;%7D"
+    var styledApp = FxApplication("Configured styles", stylesheet)
+    styledApp.run(build: () {
+      var native = labelNew()
+      var wrapped = styledApp.adopt(native)
+      styledApp.root(wrapped)
+      require(condition: styledApp.scene().getStylesheets()!!.contains(stylesheet), message: "caller stylesheet reaches scene")
+      styledApp.later(() { styledApp.close() })
+    }, dispose: () {})
   })
 }

@@ -11,3 +11,5 @@
 已在 Windows x64 验证 JVM 执行和 Native 应用启动。JavaFX 制品从 Maven Central 解析；Norm 包通过 GitHub Releases 分发。
 
 [示例归属](samples/README.zh-CN.md)。
+
+原生 JavaFX 节点接入和应用样式配置入口见 [application.norm](ui/fx/application.norm) 与 [node.norm](ui/fx/node.norm)。

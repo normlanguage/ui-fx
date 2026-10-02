@@ -11,3 +11,5 @@ Tests: `norm test ui/fx`.
 Validated on Windows x64 with JVM execution and Native application startup. JavaFX artifacts are resolved from Maven Central; Norm packages are distributed through GitHub Releases.
 
 [Sample ownership](samples/README.md).
+
+Native JavaFX node adoption and application stylesheet configuration are defined in [application.norm](ui/fx/application.norm) and [node.norm](ui/fx/node.norm).
