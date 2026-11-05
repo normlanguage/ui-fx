@@ -1,6 +1,7 @@
 import argparse
 import json
 import re
+import subprocess
 from collections import Counter
 from pathlib import Path
 from zipfile import ZipFile
@@ -36,6 +37,24 @@ reflected = [entry["type"][len("com.sun.prism.shader."):-len("_Loader")] for ent
 included = [path[len(shader_prefix):-len(".obj")] for path in resources]
 invalid_methods = [entry["type"] for entry in reflections if entry.get("methods") != [{"name": "loadShader", "parameterTypes": expected_signature}]]
 issues = []
+# Glass looks these callbacks up through JNI when Windows UI Automation reads a
+# text control. Missing entries fail only at runtime, sometimes with a segfault.
+text_range_type = "com.sun.glass.ui.win.WinTextRangeProvider"
+signatures = subprocess.check_output(
+    ["javap", "-private", "-classpath", str(args.graphics_jar), text_range_type], text=True
+)
+required_callbacks = []
+for line in signatures.splitlines():
+    callback = re.match(r"\s*private [\w.$\[\]]+ ([A-Z]\w*)\(([^)]*)\);", line)
+    if callback:
+        required_callbacks.append({"name": callback[1], "parameterTypes": callback[2].split(", ") if callback[2] else []})
+text_ranges = [entry for entry in metadata["reflection"] if entry["type"] == text_range_type]
+if not required_callbacks or len(text_ranges) != 1 or not text_ranges[0].get("jniAccessible"):
+    issues.append("Windows text accessibility JNI callbacks are not registered")
+else:
+    missing_callbacks = [method for method in required_callbacks if method not in text_ranges[0].get("methods", [])]
+    if missing_callbacks:
+        issues.append(f"missing Windows text accessibility JNI callbacks: {missing_callbacks}")
 toolkit = [entry for entry in metadata["reflection"] if entry["type"] == "com.sun.javafx.tk.quantum.QuantumToolkit"]
 if len(toolkit) != 1 or {"name": "<init>", "parameterTypes": []} not in toolkit[0].get("methods", []):
     issues.append("the dynamically loaded JavaFX toolkit constructor is not registered")
