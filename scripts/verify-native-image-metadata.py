@@ -84,6 +84,16 @@ for owner, (methods, fields) in clipboard_callbacks.items():
         {"name": name, "parameterTypes": args} not in registered for name, args in methods.items()
     ) or any({"name": name} not in entry.get("fields", []) for name in fields):
         issues.append(f"Missing Windows clipboard JNI registration on {owner}")
+direct2d_types = sorted(name[:-6].replace("/", ".") for name in entries
+    if name.startswith("com/sun/javafx/font/directwrite/D2D1_") and name.endswith(".class"))
+for owner in direct2d_types:
+    signatures = subprocess.check_output(["javap", "-private", "-classpath", str(args.graphics_jar), owner], text=True)
+    fields = re.findall(r"^  [\w.$]+ (\w+);$", signatures, re.M)
+    entry = next((item for item in metadata["reflection"] if item["type"] == owner), {})
+    if not fields or not entry.get("jniAccessible") or any(
+        {"name": name} not in entry.get("fields", []) for name in fields
+    ) or {"name": "<init>", "parameterTypes": []} not in entry.get("methods", []):
+        issues.append(f"Missing Windows Direct2D font JNI registration on {owner}")
 if issues:
     parser.exit(1, "\n".join(issues) + "\n")
 print(f"Verified {len(loaders)} shader loaders, reflection signatures, and objects in {expected_name}")

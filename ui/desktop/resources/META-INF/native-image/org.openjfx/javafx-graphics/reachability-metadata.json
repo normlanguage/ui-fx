@@ -4234,6 +4234,126 @@
     {
       "type": "java.lang.Throwable",
       "jniAccessible": true
+    },
+    {
+      "type": "com.sun.javafx.font.directwrite.D2D1_PIXEL_FORMAT",
+      "jniAccessible": true,
+      "fields": [
+        {
+          "name": "format"
+        },
+        {
+          "name": "alphaMode"
+        }
+      ],
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "com.sun.javafx.font.directwrite.D2D1_RENDER_TARGET_PROPERTIES",
+      "jniAccessible": true,
+      "fields": [
+        {
+          "name": "type"
+        },
+        {
+          "name": "pixelFormat"
+        },
+        {
+          "name": "dpiX"
+        },
+        {
+          "name": "dpiY"
+        },
+        {
+          "name": "usage"
+        },
+        {
+          "name": "minLevel"
+        }
+      ],
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "com.sun.javafx.font.directwrite.D2D1_COLOR_F",
+      "jniAccessible": true,
+      "fields": [
+        {
+          "name": "r"
+        },
+        {
+          "name": "g"
+        },
+        {
+          "name": "b"
+        },
+        {
+          "name": "a"
+        }
+      ],
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "com.sun.javafx.font.directwrite.D2D1_POINT_2F",
+      "jniAccessible": true,
+      "fields": [
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        }
+      ],
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "com.sun.javafx.font.directwrite.D2D1_MATRIX_3X2_F",
+      "jniAccessible": true,
+      "fields": [
+        {
+          "name": "_11"
+        },
+        {
+          "name": "_12"
+        },
+        {
+          "name": "_21"
+        },
+        {
+          "name": "_22"
+        },
+        {
+          "name": "_31"
+        },
+        {
+          "name": "_32"
+        }
+      ],
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
     }
   ],
   "resources": [
