@@ -37,6 +37,12 @@ reflected = [entry["type"][len("com.sun.prism.shader."):-len("_Loader")] for ent
 included = [path[len(shader_prefix):-len(".obj")] for path in resources]
 invalid_methods = [entry["type"] for entry in reflections if entry.get("methods") != [{"name": "loadShader", "parameterTypes": expected_signature}]]
 issues = []
+# BufferUtil swallows reflective failures, leaving shader buffers in big-endian order.
+for type_name, method, parameters in [("java.nio.ByteOrder", "nativeOrder", []), ("java.nio.ByteBuffer", "order", ["java.nio.ByteOrder"])]:
+    entry = next((item for item in metadata["reflection"] if item["type"] == type_name), {})
+    if {"name": method, "parameterTypes": parameters} not in entry.get("methods", []):
+        issues.append(f"Missing shader byte order reflection: {type_name}.{method}")
+
 # Glass looks these callbacks up through JNI when Windows UI Automation reads a
 # text control. Missing entries fail only at runtime, sometimes with a segfault.
 text_range_type = "com.sun.glass.ui.win.WinTextRangeProvider"
