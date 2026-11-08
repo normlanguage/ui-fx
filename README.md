@@ -9,12 +9,14 @@ JavaFX implementation of the [ui protocol](https://github.com/normlanguage/ui). 
 Declare the released module in `module.norm`:
 
 ```norm
-dependency(repository: "github", name: "ui.desktop", version: 10)
+dependency(repository: "github", name: "ui.desktop", version: 11)
 ```
 
 Use [DesktopApp](ui/desktop/desktop.norm) with `ui.Widget` controls. The [foundation application](samples/foundation/application.norm) demonstrates state, theme switching and layouts. Its [module](samples/foundation/module.norm) resolves released packages by default.
 
 Native integration uses `ui.desktop.native.Node`, `ui.desktop.native.Button` and constructors such as `ui.desktop.native.buttonNew`. [nativeComponent](ui/desktop/native.norm) owns native initialization, updates, children, configuration, theme and disposal. Private layout adapter bindings are not exported. The exact public surface is defined in [module.norm](ui/desktop/module.norm).
+
+Windows created by `DesktopApp` use the Norm “N” window icon by default. The assets come from the [Norm brand resources](https://github.com/normlanguage/Norm/tree/main/docs/public/brand).
 
 ## Build and verify
 

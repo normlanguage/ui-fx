@@ -94,6 +94,19 @@ for owner in direct2d_types:
         {"name": name} not in entry.get("fields", []) for name in fields
     ) or {"name": "<init>", "parameterTypes": []} not in entry.get("methods", []):
         issues.append(f"Missing Windows Direct2D font JNI registration on {owner}")
+peer_classes = sorted(name[:-6].replace("/", ".") for name in entries
+    if name.startswith("com/sun/scenario/effect/impl/") and name.endswith("Peer.class"))
+peer_signatures = subprocess.check_output(["javap", "-classpath", str(args.graphics_jar), *peer_classes], text=True)
+peers = set(re.findall(r"public ([\w.$]+)\(com.sun.scenario.effect.FilterContext, com.sun.scenario.effect.impl.Renderer, java.lang.String\);", peer_signatures))
+peer_constructor = {"name": "<init>", "parameterTypes": ["com.sun.scenario.effect.FilterContext", "com.sun.scenario.effect.impl.Renderer", "java.lang.String"]}
+for peer in peers:
+    record = next((item for item in metadata["reflection"] if item["type"] == peer), {})
+    if peer_constructor not in record.get("methods", []):
+        issues.append(f"Missing dynamically loaded effect peer: {peer}")
+effect_shaders = {name for name in entries if name.startswith("com/sun/scenario/effect/impl/hw/d3d/hlsl/") and name.endswith(".obj")}
+missing_effects = effect_shaders - {item.get("glob") for item in metadata["resources"]}
+if missing_effects:
+    issues.append(f"Missing effect shaders: {sorted(missing_effects)}")
 if issues:
     parser.exit(1, "\n".join(issues) + "\n")
 print(f"Verified {len(loaders)} shader loaders, reflection signatures, and objects in {expected_name}")
