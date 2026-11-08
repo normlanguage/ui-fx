@@ -5641,6 +5641,26 @@
           ]
         }
       ]
+    },
+    {
+      "type": "java.nio.ByteOrder",
+      "methods": [
+        {
+          "name": "nativeOrder",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.nio.ByteBuffer",
+      "methods": [
+        {
+          "name": "order",
+          "parameterTypes": [
+            "java.nio.ByteOrder"
+          ]
+        }
+      ]
     }
   ],
   "resources": [
