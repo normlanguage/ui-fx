@@ -1,0 +1,7 @@
+{
+  "resources": [
+    {
+      "glob": "dev/normlanguage/ui/desktop/norm-*.png"
+    }
+  ]
+}

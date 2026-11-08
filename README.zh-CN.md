@@ -9,12 +9,14 @@
 在 `module.norm` 中声明正式发布的模块：
 
 ```norm
-dependency(repository: "github", name: "ui.desktop", version: 10)
+dependency(repository: "github", name: "ui.desktop", version: 11)
 ```
 
 使用 [DesktopApp](ui/desktop/desktop.norm)承载 `ui.Widget`。[基础示例](samples/foundation/application.norm)展示状态、主题切换与布局，其[模块声明](samples/foundation/module.norm)默认解析正式包。
 
 原生扩展通过 `ui.desktop.native.Node`、`ui.desktop.native.Button` 和 `ui.desktop.native.buttonNew` 等构造函数使用 JavaFX。[nativeComponent](ui/desktop/native.norm)统一管理初始化、更新、子节点、配置、主题与释放。内部布局绑定不对外导出。公开 API 以 [module.norm](ui/desktop/module.norm)为准。
+
+`DesktopApp` 创建的窗口默认使用 Norm 的“N”图标，图标资源来自 [Norm 品牌资源](https://github.com/normlanguage/Norm/tree/main/docs/public/brand)。
 
 ## 构建与验证
 

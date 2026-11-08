@@ -8,6 +8,7 @@ import std.concurrent.Task
 import ui.UiTaskTracker
 import std.concurrent.completion
 import std.context.currentContext
+import ui.desktop.internal.windowIconsApply
 import ui.desktop.native.Stage
 import ui.desktop.native.Node
 import ui.desktop.native.Scene
@@ -93,6 +94,7 @@ public class FxApplication {
     try {
       this.later(() {
         var window = stageNew()
+        windowIconsApply(window)
         stage = window
         var pane = stackPaneNew()
         container = pane

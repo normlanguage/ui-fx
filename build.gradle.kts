@@ -1,10 +1,12 @@
+import org.apache.tools.ant.filters.FixCrLfFilter
+
 plugins {
     `java-library`
     `maven-publish`
     id("org.openjfx.javafxplugin") version "0.1.0"
 }
 group = "dev.normlanguage"
-version = "3"
+version = "4"
 repositories { mavenCentral() }
 java { toolchain { languageVersion = JavaLanguageVersion.of(25) } }
 javafx { version = "25.0.2"; modules("javafx.base", "javafx.graphics", "javafx.controls"); configuration = "api" }
@@ -13,6 +15,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
+tasks.withType<ProcessResources>().configureEach {
+    filesMatching("**/*.json") {
+        filter<FixCrLfFilter>("eol" to FixCrLfFilter.CrLf.newInstance("lf"))
+    }
+}
+
 tasks.withType<JavaCompile>().configureEach { options.encoding = "UTF-8"; options.compilerArgs.add("-parameters") }
 tasks.withType<Test>().configureEach { useJUnitPlatform(); jvmArgs("--enable-native-access=ALL-UNNAMED"); testLogging { events("passed", "failed") } }
 tasks.withType<Jar>().configureEach { from("LICENSE") { into("META-INF") } }

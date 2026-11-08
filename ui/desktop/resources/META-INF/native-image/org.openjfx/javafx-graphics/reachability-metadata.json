@@ -4354,6 +4354,1293 @@
           "parameterTypes": []
         }
       ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.PrCropPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.PrFloodPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.PrMergePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.PrReflectionPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_ADDPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_BLUEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_COLOR_BURNPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_COLOR_DODGEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_DARKENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_DIFFERENCEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_EXCLUSIONPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_GREENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_HARD_LIGHTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_LIGHTENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_MULTIPLYPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_OVERLAYPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_REDPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_SCREENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_SOFT_LIGHTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_SRC_ATOPPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_SRC_INPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_SRC_OUTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBlend_SRC_OVERPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSBrightpassPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSColorAdjustPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSDisplacementMapPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSInvertMaskPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSLinearConvolvePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSLinearConvolveShadowPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSPerspectiveTransformPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSPhongLighting_DISTANTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSPhongLighting_POINTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSPhongLighting_SPOTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPSSepiaTonePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.prism.ps.PPStoPSWDisplacementMapPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_ADDPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_BLUEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_DODGEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_DARKENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_DIFFERENCEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_EXCLUSIONPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_GREENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_HARD_LIGHTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_LIGHTENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_MULTIPLYPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_OVERLAYPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_REDPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_SCREENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_SOFT_LIGHTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_ATOPPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_INPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OUTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OVERPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBoxBlurPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBoxShadowPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWBrightpassPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWColorAdjustPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWDisplacementMapPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWInvertMaskPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWLinearConvolvePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWLinearConvolveShadowPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWPerspectiveTransformPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWPhongLighting_DISTANTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWPhongLighting_POINTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWPhongLighting_SPOTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.java.JSWSepiaTonePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_ADDPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_BLUEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_COLOR_BURNPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_COLOR_DODGEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_DARKENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_DIFFERENCEPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_EXCLUSIONPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_GREENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_HARD_LIGHTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_LIGHTENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_MULTIPLYPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_OVERLAYPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_REDPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_SCREENPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_SOFT_LIGHTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_ATOPPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_INPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OVERPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBoxBlurPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBoxShadowPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEBrightpassPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEColorAdjustPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEDisplacementMapPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEInvertMaskPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSELinearConvolvePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSELinearConvolveShadowPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEPerspectiveTransformPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEPhongLighting_DISTANTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEPhongLighting_POINTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSEPhongLighting_SPOTPeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.sun.scenario.effect.impl.sw.sse.SSESepiaTonePeer",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "com.sun.scenario.effect.FilterContext",
+            "com.sun.scenario.effect.impl.Renderer",
+            "java.lang.String"
+          ]
+        }
+      ]
     }
   ],
   "resources": [
@@ -5196,6 +6483,156 @@
     },
     {
       "glob": "com/sun/prism/d3d/hlsl/Texture_RadialGradient_REPEAT_AlphaTest.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_ADD.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_BLUE.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_COLOR_BURN.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_COLOR_DODGE.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_DARKEN.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_DIFFERENCE.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_EXCLUSION.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_GREEN.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_HARD_LIGHT.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_LIGHTEN.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_MULTIPLY.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_OVERLAY.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_RED.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_SCREEN.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_SOFT_LIGHT.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_SRC_ATOP.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_SRC_IN.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_SRC_OUT.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Blend_SRC_OVER.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/Brightpass.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/ColorAdjust.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/DisplacementMap.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/InvertMask.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_12.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_128.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_16.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_20.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_24.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_28.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_32.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_4.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_64.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_8.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_96.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_12.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_128.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_16.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_20.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_24.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_28.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_32.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_4.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_64.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_8.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolve_96.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/PerspectiveTransform.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/PhongLighting_DISTANT.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/PhongLighting_POINT.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/PhongLighting_SPOT.obj"
+    },
+    {
+      "glob": "com/sun/scenario/effect/impl/hw/d3d/hlsl/SepiaTone.obj"
     }
   ]
 }
